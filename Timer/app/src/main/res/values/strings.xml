@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Timer</string>
+    <string name="action_settings">Settings</string>
+    <string name="timerVal">00:00</string>
+    <string name="pauseButtonLabel">View workouts</string>
+    <string name="startButtonLabel">Create workout</string>
+    <string name="resetButtonLabel">View map</string>
+    <string name="sound">Sound</string>
+    <string name="reminders">Reminders</string>
+    <string name="warmUp">Zagrijavanje</string>
+    <string name="stretch">Istezanje</string>
+    <string name="roundNum">Broj rundi</string>
+    <string name="prep">Priprema</string>
+    <string name="rest">Odmor</string>
+    <string name="round">Runda</string>
+    <string name="cooldown">Hlađenje</string>
+    <string name="add">ADD</string>
+
+</resources>

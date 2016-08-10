@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/timerValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timerVal"
+        android:textColor="#3cff00"
+        android:textSize="80sp"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="38dp"
+        android:text="@string/startButtonLabel"
+        android:layout_above="@+id/pauseButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/pauseButton"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="38dp"
+        android:text="@string/pauseButtonLabel"
+        android:layout_above="@+id/resetButton"
+        android:layout_alignStart="@+id/startButton" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="38dp"
+        android:text="@string/resetButtonLabel"
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView8"
+        android:layout_marginTop="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/timerValue" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/timerValue"
+        android:layout_alignStart="@+id/timerValue"
+        android:layout_marginTop="24dp" />
+
+</RelativeLayout>
