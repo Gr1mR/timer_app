@@ -1,90 +1,82 @@
 package com.example.marko.timer;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
+
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button startButton;
-    private Button pauseButton;
-    private Button resetButton;
+    private Button createButton;
+    private Button workoutsButton;
+    private Button mapButton;
+    private Button settingsButton;
 
-    private TextView timerValue;
-
-    private long startTime = 0L;
-
-    private Handler customHandler = new Handler();
-
-    long timeInMilliseconds = 0L;
-    long timeSwapBuff = 0L;
-    long updatedTime = 0L;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        timerValue = (TextView) findViewById(R.id.timerValue);
-        startButton = (Button) findViewById(R.id.startButton);
-        pauseButton = (Button) findViewById(R.id.pauseButton);
-        resetButton = (Button) findViewById(R.id.resetButton);
-
-        startButton.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                startTime = SystemClock.uptimeMillis();
-                customHandler.postDelayed(updateTimerThread, 0);
-
-            }
-        });
-
-        resetButton.setOnClickListener(new View.OnClickListener() {
-
-            int mins = 00;
-            int secs = 00;
-
-
-            public void onClick(View view) {
-
-                startTime = SystemClock.uptimeMillis();
-                customHandler.postDelayed(updateTimerThread, 0);
-                timerValue.setText(String.format("%02d:%02d",mins, secs));
-                customHandler.removeCallbacks(updateTimerThread);
-            }
-        });
-
-        pauseButton.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-
-                timeSwapBuff += timeInMilliseconds;
-                customHandler.removeCallbacks(updateTimerThread);
-
-            }
-        });
+        Settings();
+        Create();
+        Workouts();
+        Map();
 
     }
 
-    private Runnable updateTimerThread = new Runnable() {
+    public void Settings() {
+        settingsButton = (Button) findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent settings = new Intent("com.example.marko.timer.SettingActivity");
+                        startActivity(settings);
+                    }
+                }
+        );
+    }
 
-        public void run() {
+    public void Create() {
+        createButton = (Button) findViewById(R.id.createButton);
+        createButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent create = new Intent("com.example.marko.timer.CreateActivity");
+                        startActivity(create);
+                    }
+                }
+        );
+    }
 
-            timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
+    public void Workouts() {
+         workoutsButton= (Button) findViewById(R.id.workoutsButton);
+        workoutsButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent workouts = new Intent("com.example.marko.timer.WorkoutsActivity");
+                        startActivity(workouts);
+                    }
+                }
+        );
+    }
 
-            updatedTime = timeSwapBuff + timeInMilliseconds;
-
-            int secs = (int) (updatedTime / 1000);
-            int mins = secs / 60;
-            secs = secs % 60;
-            timerValue.setText(String.format("%02d:%02d",mins, secs));
-            customHandler.postDelayed(this, 0);
-        }
-
-    };
+    public void Map() {
+        mapButton= (Button) findViewById(R.id.mapButton);
+        mapButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent map = new Intent("com.example.marko.timer.WorkoutsActivity");
+                        startActivity(map);
+                    }
+                }
+        );
+    }
 
 }
+

@@ -5,12 +5,14 @@
     android:weightSum="1">
 
     <Switch
+        android:padding="@dimen/activity_horizontal_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sound"
         android:id="@+id/sound" />
 
     <Switch
+        android:padding="@dimen/activity_horizontal_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/reminders"
@@ -19,7 +21,8 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="133dp"
-        android:id="@+id/listView"
+        android:id="@+id/settingsList"
         android:layout_weight="0.21" />
+
 
 </LinearLayout>
